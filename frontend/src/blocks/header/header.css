@@ -1,0 +1,21 @@
+.header {
+    background-color: #000;
+    border-bottom: 1px solid rgb(84, 84, 84, 0.7);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    grid-template-areas:
+    'header__contanier'
+    'header__logo';
+  }
+
+  @media screen and (min-width: 768px) {
+    .header {
+      padding: 45px 0 41px 0px;
+      justify-content: space-between;
+      grid-template-columns: repeat(2, minmax(min-content, max-content));
+      grid-template-rows: 1fr;
+      grid-template-areas:
+      'header__logo header__contanier';
+    }
+  }

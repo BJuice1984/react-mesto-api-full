@@ -1,0 +1,19 @@
+.login__input-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  padding-top: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+}
+
+@media screen and (min-width: 768px) {
+  .login__input-form {
+    padding: 0;
+    padding-top: 50px;
+    max-width: 358px;
+  }
+}

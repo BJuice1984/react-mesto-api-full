@@ -1,0 +1,7 @@
+.button_type_heart-like-active {
+  opacity: 1;
+  background: url(../../../images/heart_active.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 19px;
+}

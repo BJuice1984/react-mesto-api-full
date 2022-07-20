@@ -1,0 +1,20 @@
+.popup__input-text {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: normal;
+  padding-bottom: 13px;
+  color: #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  background-color: transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  outline: none;
+}
+
+.popup__input-text:last-of-type {
+  padding-top: 25px;
+}

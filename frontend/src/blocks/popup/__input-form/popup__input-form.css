@@ -1,0 +1,17 @@
+.popup__input-form {
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  border: none;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+@media screen and (min-width: 768px) {
+  .popup__input-form {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}

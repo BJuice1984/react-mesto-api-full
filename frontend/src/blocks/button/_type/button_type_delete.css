@@ -1,0 +1,9 @@
+.button_type_delete {
+  position: absolute;
+  background-color: transparent;
+  background-image: url(../../../images/Bin.svg);
+  width: 18px;
+  height: 20px;
+  top: 20px;
+  right: 20px;
+}

@@ -1,0 +1,14 @@
+.header__container {
+  margin: 0;
+  display: flex;
+  grid-area: header__contanier;
+  justify-self: center;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .header__container {
+    align-self: center;
+    flex-direction: row;
+  }
+}

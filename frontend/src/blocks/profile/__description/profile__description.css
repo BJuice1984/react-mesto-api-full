@@ -1,0 +1,36 @@
+.profile__description {
+  grid-area: profile__description;
+  justify-self: center;
+  color: #fff;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration: none;
+  margin: 0;
+  font-weight: normal;
+  padding-top: 9px;
+  margin-bottom: 36px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 210px;
+}
+
+@media screen and (min-width: 768px) {
+  .profile__description {
+    padding-top: 16px;
+    font-size: 22px;
+    line-height: 24px;
+    max-width: 510px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .profile__description {
+    justify-self: start;
+    font-size: 18px;
+    line-height: 22px;
+    padding-left: 20px;
+    margin-bottom: 0;
+    max-width: 380px;
+  }
+}

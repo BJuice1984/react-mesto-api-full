@@ -1,0 +1,22 @@
+.login__input-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  color: #fff;
+  padding: 0;
+  padding-bottom: 13px;
+  border-bottom: 2px solid #ccc;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  background-color: transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  outline: none;
+}
+
+.login__input-text:last-of-type {
+  padding-top: 30px;
+}

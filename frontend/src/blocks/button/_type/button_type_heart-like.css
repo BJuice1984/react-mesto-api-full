@@ -1,0 +1,16 @@
+.button_type_heart-like{
+  grid-area: button_type_heart-like;
+  background-color: #fff;
+  padding-right: 50px;
+  transition: all 0.5s ease;
+  border-radius: 10px;
+  background: url(../../../images/heart.svg);
+  background-size: 19px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.button_type_heart-like:hover {
+  opacity: 0.5;
+  transition: 0.2s ease-in-out;
+}

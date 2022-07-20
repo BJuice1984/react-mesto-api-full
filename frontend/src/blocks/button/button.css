@@ -1,0 +1,18 @@
+.button {
+  background-color: #000;
+  appearance: none;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.button:hover {
+  opacity: 0.6;
+  transition: 0.2s ease-in-out;
+}
+

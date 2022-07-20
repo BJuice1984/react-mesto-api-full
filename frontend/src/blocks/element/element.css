@@ -1,0 +1,14 @@
+.element {
+  display: grid;
+  background-color: #fff;
+  width: 282px;
+  margin: 0;
+  border-radius: 10px;
+  position: relative;
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: 1fr 40px;
+  grid-template-areas:
+  "element__photo element__photo"
+  "element__name button_type_heart-like"
+  "element__name element__counter";
+}
