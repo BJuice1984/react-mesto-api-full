@@ -1,7 +1,7 @@
 class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
-    this._headers = options.headers;
+    this._credentials = options.credentials;
   }
 
   _checkResponse(res) {
@@ -13,14 +13,14 @@ class Api {
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers
+      credentials: this._credentials
     })
       .then(res => this._checkResponse(res));
   }
 
   getInitialUser() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers
+      credentials: this._credentials
     })
       .then(res => this._checkResponse(res))
   }
@@ -28,7 +28,7 @@ class Api {
   getChangeAvatar(link) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
+      credentials: this._credentials,
       body: JSON.stringify(link)
     })
       .then(res => this._checkResponse(res))
@@ -37,7 +37,7 @@ class Api {
   getChangeUserInfo(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      credentials: this._credentials,
       body: JSON.stringify(data)
     })
       .then(res => this._checkResponse(res))
@@ -46,7 +46,7 @@ class Api {
   getNewCard(data) {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
-      headers: this._headers,
+      credentials: this._credentials,
       body: JSON.stringify(data)
     })
       .then(res => this._checkResponse(res))
@@ -55,7 +55,7 @@ class Api {
   getDeleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: 'DELETE',
-      headers: this._headers,
+      credentials: this._credentials,
     })
       .then(res => this._checkResponse(res))
   }
@@ -63,7 +63,7 @@ class Api {
   getAddLike(id) {
     return fetch(`${this._baseUrl}/cards/likes/${id}`, {
       method: 'PUT',
-      headers: this._headers,
+      credentials: this._credentials,
     })
       .then(res => this._checkResponse(res))
   }
@@ -71,16 +71,13 @@ class Api {
   getRemoveLike(id) {
     return fetch(`${this._baseUrl}/cards/likes/${id}`, {
       method: 'DELETE',
-      headers: this._headers,
+      credentials: this._credentials,
     })
       .then(res => this._checkResponse(res))
   }
 }
 
 export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-34',
-  headers: {
-    authorization: '8ea9cb00-852a-4345-ada2-88b25612cbe6',
-    'Content-Type': 'application/json'
-  }
+  baseUrl: 'http://localhost:3000',
+  credentials: 'include',
 });

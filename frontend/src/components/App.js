@@ -174,25 +174,26 @@ function App() {
   const handleLogin = ({ password, email }) => {
     return Auth.authorize(password, email)
     .then((data) => {
-      if (data.token) {
-        localStorage.setItem('jwt', data.token);
+      if (data) {
+        // localStorage.setItem('jwt', data.token);
             setUserData(email);
             setLoggedIn(true);
       }
     })
   }
 
-  const tokenCheck = () => {
-    if (localStorage.getItem('jwt')){
-      const jwt = localStorage.getItem('jwt');
-      Auth.getContent(jwt).then((res) => {
-        if (res){
-          setUserData(res.data.email);
-          setLoggedIn(true);          
-        }
-      });
-    }
-  }
+  // const tokenCheck = () => {
+  //   if (localStorage.getItem('jwt')){
+  //     // const jwt = localStorage.getItem('jwt');
+  //     // Auth.getContent(jwt).then((res) => {
+  //     Auth.getContent().then((res) => {
+  //       if (res){
+  //         setUserData(res.data.token);
+  //         setLoggedIn(true);          
+  //       }
+  //     });
+  //   }
+  // }
 
   const signOut = () => {
     localStorage.removeItem('jwt');
@@ -207,9 +208,9 @@ function App() {
     }
   }, [loggedIn])
 
-  React.useEffect(() => {
-    tokenCheck();
-  }, []);
+  // React.useEffect(() => {
+  //   tokenCheck();
+  // }, []);
 
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
