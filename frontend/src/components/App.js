@@ -39,6 +39,7 @@ function App() {
     Promise.all([api.getInitialUser(), api.getInitialCards()])
     .then(([userData, initialCards]) => {
       //установка данных пользователя
+      console.log(initialCards)
       setCurrentUser(userData);
       setCards(initialCards)
     })
