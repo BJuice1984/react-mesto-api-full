@@ -78,7 +78,7 @@ module.exports.updateUser = (req, res, next) => {
     runValidators: true,
   })
     .orFail(() => { throw new NotFoundError('Ошибка. Пользователь не найден'); })
-    .then((user) => res.send(user))
+    .then((user) => { console.log(user); res.send(user)})
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new BadDataError('Ошибка. Данные не корректны'));

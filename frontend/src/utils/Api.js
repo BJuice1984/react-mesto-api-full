@@ -2,6 +2,7 @@ class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
     this._credentials = options.credentials;
+    this._headers = options.headers;
   }
 
   _checkResponse(res) {
@@ -37,6 +38,7 @@ class Api {
   getChangeUserInfo(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
+      headers: this._headers,
       credentials: this._credentials,
       body: JSON.stringify(data)
     })
@@ -46,6 +48,7 @@ class Api {
   getNewCard(data) {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
+      headers: this._headers,
       credentials: this._credentials,
       body: JSON.stringify(data)
     })
@@ -80,4 +83,5 @@ class Api {
 export const api = new Api({
   baseUrl: 'http://localhost:3000',
   credentials: 'include',
+  headers: {'Content-Type': 'application/json'}
 });

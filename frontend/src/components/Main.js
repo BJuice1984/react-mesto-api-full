@@ -5,6 +5,7 @@ import Spinner from './Spinner';
 
 
 function Main(props) {
+  console.log('Main', props.cards)
 
   const userData = React.useContext(CurrentUserContext);
 

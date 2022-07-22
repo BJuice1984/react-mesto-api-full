@@ -14,12 +14,12 @@ module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   const owner = req.user._id;
   Card.create({ name, link, owner })
-    .then((card) => res.status(OkCodeCreated).send({
+    .then((card) => { console.log(card); res.status(OkCodeCreated).send({
       name: card.name,
       link: card.link,
       owner: card.owner,
       _id: card._id,
-    }))
+    }); })
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new BadDataError('Ошибка. Данные не корректны'));

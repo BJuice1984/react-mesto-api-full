@@ -94,6 +94,7 @@ function App() {
     setIsConfirmating(true);
     api.getChangeUserInfo(data)
     .then((res) => {
+      console.log('App', res)
       setCurrentUser(res);
       closeAllPopups();
     })
