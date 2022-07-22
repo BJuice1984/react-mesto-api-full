@@ -49,7 +49,7 @@ class Api {
       credentials: this._credentials,
       body: JSON.stringify(data)
     })
-      .then(res => this._checkResponse(res))
+      .then(res => {console.log('apicard', res); this._checkResponse(res)})
   }
 
   getDeleteCard(id) {
