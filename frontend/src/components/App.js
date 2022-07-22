@@ -39,6 +39,7 @@ function App() {
     Promise.all([api.getInitialUser(), api.getInitialCards()])
     .then(([userData, initialCards]) => {
       //установка данных пользователя
+      console.log('userData', userData)
       setCurrentUser(userData);
       setCards(initialCards)
     })
@@ -94,7 +95,7 @@ function App() {
     setIsConfirmating(true);
     api.getChangeUserInfo(data)
     .then((res) => {
-      console.log('App', res)
+      console.log('res', res)
       setCurrentUser(res);
       closeAllPopups();
     })

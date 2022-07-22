@@ -13,13 +13,15 @@ module.exports.getCards = (req, res, next) => {
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   const owner = req.user._id;
-  Card.create({ name, link, owner })
-    .then((card) => { console.log(card); res.status(OkCodeCreated).send({
+  const likes = [];
+  Card.create({ name, link, owner, likes })
+    .then((card) => res.status(OkCodeCreated).send({
       name: card.name,
       link: card.link,
       owner: card.owner,
+      likes: card.likes,
       _id: card._id,
-    }); })
+    }))
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new BadDataError('Ошибка. Данные не корректны'));

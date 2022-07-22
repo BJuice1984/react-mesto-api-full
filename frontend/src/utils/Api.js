@@ -6,6 +6,7 @@ class Api {
   }
 
   _checkResponse(res) {
+    // console.log('_checkResponse', res)
     if (res.ok) {
       return res.json()
     }
@@ -26,13 +27,15 @@ class Api {
       .then(res => this._checkResponse(res))
   }
 
-  getChangeAvatar(link) {
+  getChangeAvatar(data) {
+    console.log(data.avatar);
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
+      headers: this._headers,
       credentials: this._credentials,
-      body: JSON.stringify(link)
+      body: JSON.stringify({ avatar: data.avatar })
     })
-      .then(res => {console.log('api', res); this._checkResponse(res)})
+      .then(res => this._checkResponse(res))
   }
 
   getChangeUserInfo(data) {
@@ -40,19 +43,20 @@ class Api {
       method: 'PATCH',
       headers: this._headers,
       credentials: this._credentials,
-      body: JSON.stringify(data)
+      body: JSON.stringify({ name: data.name, about: data.about })
     })
-      .then(res => {console.log('api', res); this._checkResponse(res)})
+      .then(res => this._checkResponse(res))
   }
 
   getNewCard(data) {
+    console.log(data);
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: this._headers,
       credentials: this._credentials,
-      body: JSON.stringify(data)
+      body: JSON.stringify({ name: data.name, link: data.link })
     })
-      .then(res => {console.log('apicard', res); this._checkResponse(res)})
+      .then(res => this._checkResponse(res))
   }
 
   getDeleteCard(id) {
