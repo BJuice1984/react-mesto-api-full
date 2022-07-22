@@ -54,7 +54,7 @@ function App() {
     const isLiked = card.likes.some(i => i._id === currentUser._id); // Снова проверяем, есть ли уже лайк на этой карточке
                                     
     if (!isLiked) {
-      api.getAddLike(card._id) // Отправляем запрос в API и получаем обновлённые данные карточки
+      api.setAddLike(card._id) // Отправляем запрос в API и получаем обновлённые данные карточки
       .then((newCard) => {
         setCards((prevCards) => {  //Обновляем стейт через колбек по предидущему значению стейта без замыкания
           return prevCards.map((c) => c._id === card._id ? newCard : c);
@@ -64,7 +64,7 @@ function App() {
         console.log(err)
       });
     } else {
-      api.getRemoveLike(card._id)
+      api.setRemoveLike(card._id)
       .then((newCard) => {     
         setCards((prevCards) => {  //Обновляем стейт через колбек по предидущему значению стейта без замыкания
           return prevCards.map((c) => c._id === card._id ? newCard : c);
@@ -78,7 +78,7 @@ function App() {
 
   function handleCardDelete(card) {
     setIsConfirmating(true);
-    api.getDeleteCard(card._id)
+    api.setDeleteCard(card._id)
     .then(() => {
       setCards((prevCards) => {  //Обновляем стейт через колбек по предидущему значению стейта без замыкания
         return prevCards.filter(c => c._id !== card._id);
@@ -93,7 +93,7 @@ function App() {
 
   function handleUpdateUser(data) {
     setIsConfirmating(true);
-    api.getChangeUserInfo(data)
+    api.setChangeUserInfo(data)
     .then((res) => {
       console.log('res', res)
       setCurrentUser(res);
@@ -107,7 +107,7 @@ function App() {
 
   function handleUpdateAvatar(link) {
     setIsConfirmating(true);
-    api.getChangeAvatar(link)
+    api.setChangeAvatar(link)
     .then((res) => {
       setCurrentUser(res);
       closeAllPopups();
@@ -120,7 +120,7 @@ function App() {
 
   function handleAddPlaceSubmit(cardItem) {
     setIsConfirmating(true);
-    api.getNewCard(cardItem)
+    api.setNewCard(cardItem)
     .then((newCardItem) => {
       setCards([newCardItem, ...cards]);
       closeAllPopups();

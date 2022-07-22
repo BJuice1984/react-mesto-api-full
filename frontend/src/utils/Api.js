@@ -27,7 +27,7 @@ class Api {
       .then(res => this._checkResponse(res))
   }
 
-  getChangeAvatar(data) {
+  setChangeAvatar(data) {
     console.log(data.avatar);
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
@@ -38,7 +38,7 @@ class Api {
       .then(res => this._checkResponse(res))
   }
 
-  getChangeUserInfo(data) {
+  setChangeUserInfo(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
@@ -48,7 +48,7 @@ class Api {
       .then(res => this._checkResponse(res))
   }
 
-  getNewCard(data) {
+  setNewCard(data) {
     console.log(data);
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
@@ -59,7 +59,7 @@ class Api {
       .then(res => this._checkResponse(res))
   }
 
-  getDeleteCard(id) {
+  setDeleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: 'DELETE',
       credentials: this._credentials,
@@ -67,7 +67,7 @@ class Api {
       .then(res => this._checkResponse(res))
   }
 
-  getAddLike(id) {
+  setAddLike(id) {
     return fetch(`${this._baseUrl}/cards/likes/${id}`, {
       method: 'PUT',
       credentials: this._credentials,
@@ -75,7 +75,7 @@ class Api {
       .then(res => this._checkResponse(res))
   }
 
-  getRemoveLike(id) {
+  setRemoveLike(id) {
     return fetch(`${this._baseUrl}/cards/likes/${id}`, {
       method: 'DELETE',
       credentials: this._credentials,
