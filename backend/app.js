@@ -16,6 +16,9 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 
 const allowedCors = [
   'http://localhost:3006',
+  'http://localhost:3000',
+  'http://localhost:3000/users/me',
+  'http://localhost:3000/users/me/avatar',
 ];
 
 app.use(bodyParser.json());

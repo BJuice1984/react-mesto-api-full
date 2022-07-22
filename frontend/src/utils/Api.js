@@ -31,7 +31,7 @@ class Api {
       credentials: this._credentials,
       body: JSON.stringify(link)
     })
-      .then(res => this._checkResponse(res))
+      .then(res => {console.log('api', res); this._checkResponse(res)})
   }
 
   getChangeUserInfo(data) {
@@ -40,7 +40,7 @@ class Api {
       credentials: this._credentials,
       body: JSON.stringify(data)
     })
-      .then(res => this._checkResponse(res))
+      .then(res => {console.log('api', res); this._checkResponse(res)})
   }
 
   getNewCard(data) {
