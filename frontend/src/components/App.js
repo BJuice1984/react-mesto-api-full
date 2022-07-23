@@ -47,7 +47,7 @@ function App() {
       console.log(err)
     })
     .finally(() => setIsLoading(false));
-  }, []);
+  }, [loggedIn]);
 
   function handleCardLike(card) {
                                     
@@ -198,17 +198,21 @@ function App() {
   // }
 
   const signOut = () => {
-    localStorage.removeItem('jwt');
-    setLoggedIn(false);
-    setUserData(null);
-    history.push('/sign-in');
+    return Auth.logout()
+    .then((data) => {
+      if (data) {
+        setLoggedIn(false);
+        setUserData(null);
+        history.push('/sign-in');
+      }
+    })
   }
 
   React.useEffect(() => {
     if (loggedIn) {
       history.push("/")
     }
-  }, [loggedIn])
+  }, [history, loggedIn])
 
   // React.useEffect(() => {
   //   tokenCheck();
