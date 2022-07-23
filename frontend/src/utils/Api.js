@@ -6,7 +6,6 @@ class Api {
   }
 
   _checkResponse(res) {
-    // console.log('_checkResponse', res)
     if (res.ok) {
       return res.json()
     }
@@ -85,7 +84,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://api.mesto.bjuice.nomoredomains.xyz',
   credentials: 'include',
   headers: {'Content-Type': 'application/json'}
 });
