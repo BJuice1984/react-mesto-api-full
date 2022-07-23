@@ -40,7 +40,6 @@ function App() {
       Promise.all([api.getInitialUser(), api.getInitialCards()])
       .then(([userData, initialCards]) => {
         //установка данных пользователя
-        console.log('userData', userData)
         setCurrentUser(userData);
         setCards(initialCards)
       })
@@ -53,7 +52,7 @@ function App() {
 
   function handleCardLike(card) {
                                     
-    const isLiked = card.likes.some(i => i._id === currentUser._id); // Снова проверяем, есть ли уже лайк на этой карточке
+    const isLiked = card.likes.some(i => i === currentUser._id); // Снова проверяем, есть ли уже лайк на этой карточке
                                     
     if (!isLiked) {
       api.setAddLike(card._id) // Отправляем запрос в API и получаем обновлённые данные карточки
@@ -179,25 +178,11 @@ function App() {
     return Auth.authorize(password, email)
     .then((data) => {
       if (data) {
-        // localStorage.setItem('jwt', data.token);
             setUserData(email);
             setLoggedIn(true);
       }
     })
   }
-
-  // const tokenCheck = () => {
-  //   if (localStorage.getItem('jwt')){
-  //     // const jwt = localStorage.getItem('jwt');
-  //     // Auth.getContent(jwt).then((res) => {
-  //     Auth.getContent().then((res) => {
-  //       if (res){
-  //         setUserData(res.data.token);
-  //         setLoggedIn(true);          
-  //       }
-  //     });
-  //   }
-  // }
 
   const signOut = () => {
     return Auth.logout()
@@ -215,10 +200,6 @@ function App() {
       history.push("/")
     }
   }, [history, loggedIn])
-
-  // React.useEffect(() => {
-  //   tokenCheck();
-  // }, []);
 
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);

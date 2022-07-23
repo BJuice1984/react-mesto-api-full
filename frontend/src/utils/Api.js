@@ -68,7 +68,7 @@ class Api {
   }
 
   setAddLike(id) {
-    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: 'PUT',
       credentials: this._credentials,
     })
@@ -76,7 +76,7 @@ class Api {
   }
 
   setRemoveLike(id) {
-    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: 'DELETE',
       credentials: this._credentials,
     })
