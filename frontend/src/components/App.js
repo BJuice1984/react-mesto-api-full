@@ -36,17 +36,19 @@ function App() {
 
   React.useEffect(() => {
     setIsLoading(true);
-    Promise.all([api.getInitialUser(), api.getInitialCards()])
-    .then(([userData, initialCards]) => {
-      //установка данных пользователя
-      console.log('userData', userData)
-      setCurrentUser(userData);
-      setCards(initialCards)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-    .finally(() => setIsLoading(false));
+    if (loggedIn) {
+      Promise.all([api.getInitialUser(), api.getInitialCards()])
+      .then(([userData, initialCards]) => {
+        //установка данных пользователя
+        console.log('userData', userData)
+        setCurrentUser(userData);
+        setCards(initialCards)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+      .finally(() => setIsLoading(false));
+    }
   }, [loggedIn]);
 
   function handleCardLike(card) {
