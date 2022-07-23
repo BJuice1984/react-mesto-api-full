@@ -14,7 +14,9 @@ module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   const owner = req.user._id;
   const likes = [];
-  Card.create({ name, link, owner, likes })
+  Card.create({
+    name, link, owner, likes,
+  })
     .then((card) => res.status(OkCodeCreated).send({
       name: card.name,
       link: card.link,
