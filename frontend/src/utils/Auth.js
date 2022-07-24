@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://api.mesto.bjuice.nomoredomains.xyz';
 
 const checkResponse = (res) =>  {
   if (res.ok) {
