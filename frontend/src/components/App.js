@@ -182,6 +182,11 @@ function App() {
             setLoggedIn(true);
       }
     })
+    .catch(() => {
+      setInfoTooltipOpen(true);
+      setIsRegister(false)
+      history.push("/sign-in")
+    })
   }
 
   const signOut = () => {

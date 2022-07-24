@@ -14,4 +14,6 @@ MongoDB
 ## Ссылка на проект
 
 # https://mesto.bjuice.nomoredomains.xyz
+## https://api.mesto.bjuice.nomoredomains.xyz бэкенд
+## 51.250.71.127 публичный IP-адрес
 
