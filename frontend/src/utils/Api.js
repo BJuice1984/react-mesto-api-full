@@ -6,7 +6,6 @@ class Api {
   }
 
   _checkResponse(res) {
-    // console.log('_checkResponse', res)
     if (res.ok) {
       return res.json()
     }
@@ -49,7 +48,6 @@ class Api {
   }
 
   setNewCard(data) {
-    console.log(data);
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: this._headers,
@@ -85,7 +83,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.mesto.bjuice.nomoredomains.xyz',
   credentials: 'include',
   headers: {'Content-Type': 'application/json'}
 });

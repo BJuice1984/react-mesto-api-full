@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "scp -r ./build/* bjuice1984@51.250.71.127:/home/bjuice1984/mesto-frontend"
   },
   "eslintConfig": {
     "extends": [
@@ -52,7 +52,7 @@
   "bugs": {
     "url": "https://github.com/BJuice1984/react-mesto-auth/issues"
   },
-  "homepage": "https://bjuice1984.github.io/react-mesto-auth/",
+  "homepage": "https://mesto.bjuice.nomoredomains.xyz/",
   "devDependencies": {
     "nodemon": "^2.0.16"
   }
