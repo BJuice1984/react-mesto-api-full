@@ -58,8 +58,8 @@ app.use((err, req, res, next) => {
       message: statusCode === ErrCodeServer
         ? 'На сервере произошла ошибка'
         : message,
-    })
-    .next();
+    });
+  // .next(); //TypeError: res.status(...).send(...).next is not a function
 });
 
 app.listen(PORT, () => {
