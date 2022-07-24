@@ -6,6 +6,7 @@ const { errors } = require('celebrate');
 const cors = require('cors');
 const routes = require('./routes/index');
 const { ErrCodeServer } = require('./costants/constants');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
 
@@ -36,7 +37,11 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
+app.use(requestLogger);
+
 app.use(routes);
+
+app.use(errorLogger);
 
 app.use(errors());
 // eslint-disable-next-line no-unused-vars
