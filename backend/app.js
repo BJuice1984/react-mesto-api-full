@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
@@ -8,7 +9,7 @@ const routes = require('./routes/index');
 const { ErrCodeServer } = require('./costants/constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
+const { PORT } = process.env;
 
 const app = express();
 mongoose.connect('mongodb://localhost:27017/mestodb', {
@@ -44,6 +45,7 @@ app.use(routes);
 app.use(errorLogger);
 
 app.use(errors());
+
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   // если у ошибки нет статуса, выставляем 500
@@ -56,7 +58,8 @@ app.use((err, req, res, next) => {
       message: statusCode === ErrCodeServer
         ? 'На сервере произошла ошибка'
         : message,
-    });
+    })
+    .next();
 });
 
 app.listen(PORT, () => {
