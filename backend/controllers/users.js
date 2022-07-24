@@ -112,13 +112,7 @@ module.exports.login = (req, res, next) => {
   }
 
   return User.findUserByCredentials(email, password)
-    .then((user) => {
-      if (!user) {
-        next(new UnauthorizationError('Ошибка. Неправильные почта или пароль'));
-        return;
-      }
-      generateToken({ _id: user._id });
-    })
+    .then((user) => generateToken({ _id: user._id }))
     .then((token) => {
       res.cookie('jwt', token, {
         maxAge: 3600000 * 7 * 24,
@@ -128,7 +122,9 @@ module.exports.login = (req, res, next) => {
       })
         .send({ token });
     })
-    .catch(next);
+    .catch(() => {
+      next(new UnauthorizationError('Ошибка. Неправильные почта или пароль'));
+    });
 };
 
 module.exports.logout = (req, res) => {
