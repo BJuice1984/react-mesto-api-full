@@ -17,6 +17,8 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 const allowedCors = [
   'http://api.mesto.bjuice.nomoredomains.xyz',
   'http://mesto.bjuice.nomoredomains.xyz',
+  'https://api.mesto.bjuice.nomoredomains.xyz',
+  'https://mesto.bjuice.nomoredomains.xyz',
 ];
 
 app.use(bodyParser.json());

@@ -84,7 +84,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'http://api.mesto.bjuice.nomoredomains.xyz',
+  baseUrl: 'https://api.mesto.bjuice.nomoredomains.xyz',
   credentials: 'include',
   headers: {'Content-Type': 'application/json'}
 });
