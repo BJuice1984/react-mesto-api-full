@@ -1,3 +1,4 @@
+require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const { generateToken } = require('../helpers/jwt');
 const User = require('../models/user');
@@ -8,7 +9,7 @@ const BadDataError = require('../errors/bad-data-err');
 const ConflictEmailError = require('../errors/coflict-err');
 
 const MONGO_DUPLICATE_ERROR_CODE = 11000;
-const { SALT_ROUNDS } = process.env;
+const SALT_ROUNDS = 10;
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
